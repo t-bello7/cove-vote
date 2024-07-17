@@ -1,4 +1,9 @@
-
+<?php
+    require('./server/config.php');
+    if (isset($_SESSION['loggedIn'])) {
+        header('Location: index.php');
+    };
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

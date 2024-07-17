@@ -114,4 +114,65 @@ $(document).ready(function() {
       }
     }
   })
+  $("#admin-login-btn").on('click', function(){
+    var email = $("#email").val();
+    var password = $("#password").val();
+    
+    if (email == "" || password == "") {
+      alert('Please check your inputs');
+    } else {
+      $.ajax({
+          url: './server/auth.php',
+          method: 'POST',
+          data: {
+              login_admin: 1,
+              email: email,
+              password: password
+          },
+          success: function(response) {
+              if (response == 'success') {
+                  window.location.href = '/election-list.php';
+              }else {
+                  alert(response)
+              }
+          },
+          dataType: 'text'
+      })
+  }
+  })
+  $("#admin-signup-btn").on('click', function(){
+    var firstname = $("#afirstname").val();
+    var lastname = $("#alastname").val();
+    var email = $("#aemail").val();
+    var password = $("#apassword").val();
+    var confirm_password = $("#aconpassword").val();
+    if (email == "" || password == "") {
+      alert ("You need to fill your email and password")
+    } else {
+      if (password != confirm_password) {
+          alert ("Password Do not match")
+      } else {
+        $.ajax({
+            url: './server/auth.php',
+            method: 'POST',
+            data: {
+                signup_admin: 1,
+                firstname: firstname,
+                lastname: lastname,
+                email: email,
+                password: password,
+                confirm_password: confirm_password
+            },
+            success: function(response) {
+                if (response == 'success') {
+                    window.location.href = './officer-auth.php';
+                } else {
+                    alert(response)
+                }
+            },
+            dataType: 'text'
+        })
+      }
+    }
+  })
 })
