@@ -17,3 +17,13 @@ CREATE TABLE IF NOT EXISTS `users` (
     `Nationality` ENUM ('irish', 'british'),
     `DOB` DATE
 );
+
+CREATE TABLE IF NOT EXISTS `election` (
+    `election_id` INT PRIMARY KEY NOT NULL AUTO_INCREMENT,
+    `name`  VARCHAR(150) NOT NULL,
+    `description` TEXT,
+    `user_id`     INT NULL,
+    `location` ENUM ('england', 'scotland', 'wales', 'ireland', 'outside'),
+    `polling_unit` ENUM ('polling_unit_A', 'polling_unit_b', 'polling_unit_c'),
+    CONSTRAINT fk_user_id_elections FOREIGN KEY (user_id) REFERENCES users (id) ON DELETE CASCADE
+);
