@@ -8,32 +8,9 @@
     <title> Auth Page </title>
   </head>
   <body class="ff-inria">
-    <header class="header bg-dark text-white">
-      <a class="ff-montserrat-alternates header-logo" href="./index.html">
-        <span class="text-primary-1"> COVE </span> <span class="text-white"> VOTE</span>
-      </a>
-      <i class="fa-solid fa-bars btn-menu"></i>
-      <nav class="flex bg-dark nav">
-        <i class="fa-solid mg-2 fa-xmark btn-close"></i>
-        <a class="ff-montserrat-alternates" href="./index.html">
-          <span class="text-primary-1"> COVE </span> <span class="text-white"> VOTE</span>
-        </a>
-        <input placeholder="Search Upcoming Elections "/>
-        <div class="flex navbar">
-          <ul class="flex navlinks">
-              <li><a href=""> About Us </a></li>
-              <li><a href=""> Contact Us </a></li>
-          </ul>
-          <div class="dropdown">
-            <button class="btn btn-secondary flex dropdown-btn" style="gap: 1rem;"> <span>  Sign up / Login  </span> <i class="fa fa-caret-down fa-beat-fade" aria-hidden="true"></i> </button>
-            <ul class="dropdown-content">
-              <li class="dropdown-item"><a href="./voter-auth.html"> I'm a Voter </a></li>
-              <li class="dropdown-item"><a href="./officer-auth.html"> I'm an Election Officer </a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
-    </header>
+  <?php
+      include('./assets/components/header.php')
+    ?>
     <main class="container">
       <section>
         <h2> Prime Minister Election </h2>
@@ -98,36 +75,9 @@
       </div>
       </section>
     </main>
-
-    <footer class="row container mx-auto" style="margin-top: 10vh; margin-bottom: 5vh;">
-        <div class="col-md-6 col-lg-3">
-          <a class="ff-montserrat-alternates" style="background-color: #383938; padding:0.2rem; border-radius: 3px;" href="./index.html">
-            <span class="text-primary-1"> COVE </span> <span class="text-white"> VOTE</span>
-          </a>
-            <p> Cove-Vote is a web application for making elections easy
-            </p>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <h2>    Company </h2>
-            <ul>
-                <li> Home </li>
-            </ul>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <h2> Resources </h2>
-            <ul>
-                <li> Blog </li>
-            </ul>
-        </div>
-        <div class="col-md-6 col-lg-3">
-            <p> Subscribe to our Email</p>
-            <div class="d-flex gap-1 flex-wrap">
-                <input  placeholder="Email"  />
-                <button class="button rounded shadow-sm"> Subscribe </button>
-            </div>
-        </div>
-        <p style="text-align:center;margin-top: 2rem;"> Created with 💗 </p>
-  </footer>
+    <?php
+      include('./assets/components/footer.php')
+    ?>
     </body>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/79a71d8460.js" crossorigin="anonymous"></script>
