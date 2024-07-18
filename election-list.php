@@ -1,9 +1,8 @@
 <?php
-    session_start();
     require('./server/config.php');
-    if (isset($_SESSION['loggedIn'])) {
-        header('Location: index.php');
-    };
+    // if (isset($_SESSION['loggedIn'])) {
+    //     header('Location: election-list.php');
+    // };
 ?>
 <!DOCTYPE html>
 <html lang="en">

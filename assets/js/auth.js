@@ -1,8 +1,9 @@
 $(document).ready(function() {
+  console.log($(location).attr("pathname"))
+
   $("#login-btn").on('click', function() {
     var email = $("#login-email").val();
     var password = $("#login-password").val();
-
     if (email == "" || password == "") {
       alert('Please check your inputs');
     } else {
@@ -12,11 +13,14 @@ $(document).ready(function() {
           data: {
               login: 1,
               email: email,
-              password: password
+              password: password,
+              pathname: $(location).attr("pathname")
           },
           success: function(response) {
+            console.log(response)
               if (response == 'success') {
-                  window.location.href = '/election-list.php';
+                  console.log('i got here')
+                  window.location.href = 'election-list.php';
               }else {
                   alert(response)
               }
@@ -35,17 +39,6 @@ $(document).ready(function() {
     var email = $("#vemail").val();
     var password = $("#vpassword").val();
     var confirm_password = $("#vconpassword").val();
-
-    console.log(
-      location,
-      nationality,
-      DOB,
-      firstname,
-      lastname,
-      email,
-      password,
-      confirm_password
-    )
     if (email == "" || password == "") {
       alert ("You need to fill your email and password")
     } else {

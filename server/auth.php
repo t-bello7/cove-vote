@@ -8,22 +8,29 @@
     if (isset($_POST['login'])) {
       $email = $connection->real_escape_string($_POST['email']);
       $password = $connection->real_escape_string($_POST['password']);
+      $pathname = $connection->real_escape_string($_POST['pathname']);
+      $user_type_res = $connection->query(query: "SELECT `user_type` from `users` WHERE email='$email'");
+      $user_type = $user_type_res->fetch_assoc()['user_type'];
+    
+      if (  $user_type != 'officer' && $pathname == '/officer-auth.php') {
+        exit ('This user is not an election officer');
+      }
 
+      if ( $user_type != 'admin' && $pathname == '/admin-auth.php') {
+        exit ('This user is not an admin');
+      }
       $res = $connection->query(query: "SELECT password from users WHERE email='$email'");
 
       if ($res->num_rows > 0 ) {
           $hashed_password = $res->fetch_assoc()['password'];
-          $user_type = $res->fetch_assoc()['user_type'];
-
-          if ( $user_type != 'officer') {
-            exit ('This user is not an election officer');
-          }
+          
         if(password_verify($password, $hashed_password)) {
             $_SESSION['loggedIn'] = true;
             $_SESSION['email'] = $email;
+          
+            $_SESSION['userType'] = $user_type;
             $res = $connection->query(query: "SELECT `id` from `users` WHERE email='$email'");
             $id = $res->fetch_assoc()['id'];
-            $_SESSION['userType'] = $user_type;
             $_SESSION['id'] = $id;
             exit('success');
         } else {
