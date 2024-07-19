@@ -9,19 +9,24 @@
       $email = $connection->real_escape_string($_POST['email']);
       $password = $connection->real_escape_string($_POST['password']);
       $pathname = $connection->real_escape_string($_POST['pathname']);
-      $user_type_res = $connection->query(query: "SELECT `user_type` from `users` WHERE email='$email'");
-      $user_type = $user_type_res->fetch_assoc()['user_type'];
-    
-      if (  $user_type != 'officer' && $pathname == '/officer-auth.php') {
-        exit ('This user is not an election officer');
-      }
 
-      if ( $user_type != 'admin' && $pathname == '/admin-auth.php') {
-        exit ('This user is not an admin');
-      }
       $res = $connection->query(query: "SELECT password from users WHERE email='$email'");
 
       if ($res->num_rows > 0 ) {
+        $user_type_res = $connection->query(query: "SELECT `user_type` from `users` WHERE email='$email'");
+        $user_type = $user_type_res->fetch_assoc()['user_type'];
+      
+        if (  $user_type != 'officer' && $pathname == '/officer-auth.php') {
+          exit ('This user is not an election officer');
+        }
+  
+        if ( $user_type != 'admin' && $pathname == '/admin-auth.php') {
+          exit ('This user is not an admin');
+        }
+
+        if ( $user_type != 'voter' && $pathname == '/voter-auth.php') {
+          exit ('This user is not a voter');
+        }
           $hashed_password = $res->fetch_assoc()['password'];
           
         if(password_verify($password, $hashed_password)) {

@@ -246,6 +246,12 @@ li, a {
     opacity: 100%;
 }
 
+.table-wrapper {
+    max-height: 50vh;
+    width: 100%;
+    overflow: auto;
+    display:inline-block;
+}
 /* Main Content */
 .auth-container {
     height: 60vh;

@@ -1,8 +1,9 @@
 <?php
     require('./server/config.php');
-    // if (isset($_SESSION['loggedIn'])) {
-    //     header('Location: election-list.php');
-    // };
+    if (!isset($_SESSION['loggedIn'])) {
+        header('Location: index.php');
+        exit();
+    };
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -35,41 +36,48 @@
                 </div>
             </div>
         </section>
-
-        <section class="election-wrapper">
-            <div class="election">
-              <div class="flex">
-                <img src="./assets/imgs/vote-icon.png" />
-                <span> <span> 11 </span> Voters</span>
-              </div>
-
-              <span> Polling Unit 1 </span>
-              <h3> Britian Election </h3>
-              <button class="btn btn-secondary"> View More </button>
-            </div>
-
-            <div class="election">
-              <div class="flex">
-                <img src="./assets/imgs/vote-icon.png" />
-                <span> <span> 11 </span> Voters</span>
-              </div>
-
-              <span> Polling Unit 1 </span>
-              <h3> Britian Election </h3>
-              <button class="btn btn-secondary"> View More </button>
-            </div>
-
-            <div class="election">
-              <div class="flex">
-                <img src="./assets/imgs/vote-icon.png" />
-                <span> <span> 11 </span> Voters</span>
-              </div>
-
-              <span> Polling Unit 1 </span>
-              <h3> Britian Election </h3>
-              <button class="btn btn-secondary"> View More </button>
-            </div>
+       
+        <section>
+        <?php
+          if ($_SESSION['userType'] == 'officer' || $_SESSION['userType'] == 'admin' ) {
+            echo (' <a href="./add-election.php"><button> Add Election </button></a>');
+          }
+        ?>
         </section>
+        <div class="election-wrapper">
+          <div class="election">
+            <div class="flex">
+              <img src="./assets/imgs/vote-icon.png" />
+              <span> <span> 11 </span> Voters</span>
+            </div>
+
+            <span> Polling Unit 1 </span>
+            <h3> Britian Election </h3>
+            <a href="./election-detail.php"><button class="btn btn-secondary"> View More </button> </a>
+          </div>
+
+          <div class="election">
+            <div class="flex">
+              <img src="./assets/imgs/vote-icon.png" />
+              <span> <span> 11 </span> Voters</span>
+            </div>
+
+            <span> Polling Unit 1 </span>
+            <h3> Britian Election </h3>
+            <a href="./election-detail.php"><button class="btn btn-secondary"> View More </button> </a>
+          </div>
+
+          <div class="election">
+            <div class="flex">
+              <img src="./assets/imgs/vote-icon.png" />
+              <span> <span> 11 </span> Voters</span>
+            </div>
+
+            <span> Polling Unit 1 </span>
+            <h3> Britian Election </h3>
+            <a href="./election-detail.php"><button class="btn btn-secondary"> View More </button> </a>
+          </div>
+        </div>
     </main>
     <?php
       include('./assets/components/footer.php')

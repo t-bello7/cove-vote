@@ -17,7 +17,6 @@ $(document).ready(function() {
               pathname: $(location).attr("pathname")
           },
           success: function(response) {
-            console.log(response)
               if (response == 'success') {
                   console.log('i got here')
                   window.location.href = 'election-list.php';
@@ -118,8 +117,9 @@ $(document).ready(function() {
           url: './server/auth.php',
           method: 'POST',
           data: {
-              login_admin: 1,
+              login: 1,
               email: email,
+              pathname: $(location).attr("pathname"),
               password: password
           },
           success: function(response) {
