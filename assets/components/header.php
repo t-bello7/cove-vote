@@ -16,9 +16,16 @@
           </ul>
           <?php
               if (isset($_SESSION['loggedIn']))  {
-                echo ' <a href="./server/logout.php"> <button class="btn btn-secondary" type="button"> Log Out </button>
-
-                </a> ';
+                echo '
+                <div class="dropdown">
+                <button class="btn btn-secondary flex dropdown-btn" style="gap: 1rem;"> <span> '. $_SESSION['firstname'] .' ('. $_SESSION['userType'] .') </span> <i class="fa fa-caret-down fa-beat-fade" aria-hidden="true"></i> </button>
+                  <ul class="dropdown-content">
+                  <li class="dropdown-item w-full"> <a class="w-full" href="./profile.php"> Profile </a></li>
+                  <li class="dropdown-item w-full">  <a href="./server/logout.php"> <button type="butto"> Log Out </button> </a>  </li>
+                  </ul>
+                </div>
+                
+                ';
               } else {
                 echo '
                   <div class="dropdown">

@@ -18,8 +18,12 @@
   <?php
       include('./assets/components/header.php')
     ?>
-    <main class="container">
+    <main class="container flow">
     <h2> List of Voters </h2>
+    <div class="search-container">
+                        <input class="search-input" placeholder="Search for Voters" />
+                        <i style="cursor: pointer;" onclick="window.location.href='./election-list.html'" class="fa fa-search fa-2xl" aria-hidden="true"></i>
+                </div>
     <div class="table-wrapper">
 
     <table class="table">

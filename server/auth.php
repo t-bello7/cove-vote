@@ -37,6 +37,10 @@
             $res = $connection->query(query: "SELECT `id` from `users` WHERE email='$email'");
             $id = $res->fetch_assoc()['id'];
             $_SESSION['id'] = $id;
+
+            $res_firstname   = $connection->query(query: "SELECT `firstname` from `users` WHERE email='$email'");
+            $firstname = $res_firstname->fetch_assoc()['firstname'];
+            $_SESSION['firstname'] = $firstname;
             exit('success');
         } else {
             exit('failed to veriy password');

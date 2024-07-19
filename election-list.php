@@ -22,7 +22,7 @@
         <section class="grid mt-3 ">
             <div>
                 <div class="search-container">
-                        <input class="search-input" placeholder="Search for your recipes" />
+                        <input class="search-input" placeholder="Search for your upcoming elections" />
                         <i style="cursor: pointer;" onclick="window.location.href='./election-list.html'" class="fa fa-search fa-2xl" aria-hidden="true"></i>
                         <select  style="cursor: pointer;" name="location" id="location">
                             <option value="london">London </option>
