@@ -1,9 +1,9 @@
 <?php 
     require('./config.php');
-    if (!isset($_SESSION['loggedIn'])) {
-        header('Location: ../index.php');
-        exit();
-    }
+    // if (isset($_SESSION['loggedIn'])) {
+    //     header('Location: ../index.php');
+    //     exit();
+    // }
 
     if (isset($_POST['add_election'])) {
         $name = $connection->real_escape_string($_POST['name']);
@@ -42,6 +42,4 @@
             echo json_encode(array('mesage' =>  "<h1> No Record Found </h1>"));
         }
     }
-   
-
 ?>

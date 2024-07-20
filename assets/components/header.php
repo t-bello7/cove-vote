@@ -8,11 +8,14 @@
         <a class="ff-montserrat-alternates" href="./index.php">
           <span class="text-primary-1"> COVE </span> <span class="text-white"> VOTE</span>
         </a>
-        <input placeholder="Search Upcoming Elections "/>
+        <div>
+          <input id="home-search" placeholder="Search Upcoming Elections "/>
+          <button id="home-search-button"> Search </button>
+        </div>
         <div class="flex navbar">
           <ul class="flex navlinks">
               <li><a href="#about-us"> About Us </a></li>
-              <li><a href=""> Contact Us </a></li>
+              <li><a href="#contact-us"> Contact Us </a></li>
           </ul>
           <?php
               if (isset($_SESSION['loggedIn']))  {

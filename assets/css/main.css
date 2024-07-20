@@ -119,6 +119,10 @@ li, a {
     width: 100%;
 }
 
+.w-content {
+    width: fit-content;
+}
+
 .btn {
     width: fit-content;
     cursor: pointer;

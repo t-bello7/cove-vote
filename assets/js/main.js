@@ -33,19 +33,28 @@ $(document).ready(function() {
     $('.dropdown-content').removeClass('visible')
   })
 
-
-  // Tab Navigation
-  // - On page load
-  $('.form-content').hide()
-  $('.auth-form-tab span:first').addClass("active").show()
-  $('.form-content:first').show()
-
-
-  // - On Tab click
-  $('.auth-form-tab span').on("click", function(){
-    $('.auth-form-tab span').removeClass("active")
-    $(this).addClass("active")
-    var activeTab = $(this).find("a").attr("href"); //Find the href attribute value to identify the active tab + content
-    $(activeTab).fadeIn();    return false;
-  })
+  // Search Feature
+  homeSearch()
+  formSearch()
 })
+
+// Search by name function
+function homeSearch () {
+  $("#home-search-button").click(function ( ) {
+    var homeInputValue = $("#home-search").val();
+    if (homeInputValue !== "") {
+        window.location.href= `./election-list.php?search_q=${homeInputValue}`
+    }
+  })
+}
+
+// Search by polling unit and location function
+function formSearch () {
+  $("#form-search-button").click(function() {
+    var location = $("#location").val();
+    var polling_unit= $("#polling_unit").val();
+    if (location !== "" && polling_unit !== "") {
+      window.location.href= `./election-list.php?location=${location}&polling_unit=${polling_unit}`
+    }
+  })
+}

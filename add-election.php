@@ -1,3 +1,10 @@
+<?php
+    require('./server/config.php');
+    if (!($_SESSION['userType'] == 'officer' || $_SESSION['userType'] == 'admin' )) {
+        header('Location: index.php');
+        exit();
+    };
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
