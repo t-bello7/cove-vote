@@ -45,42 +45,12 @@
         ?>
         </section>
         <div class="election-wrapper">
-          <div class="election">
-            <div class="flex">
-              <img src="./assets/imgs/vote-icon.png" />
-              <span> <span> 11 </span> Voters</span>
-            </div>
-
-            <span> Polling Unit 1 </span>
-            <h3> Britian Election </h3>
-            <a href="./election-detail.php"><button class="btn btn-secondary"> View More </button> </a>
-          </div>
-
-          <div class="election">
-            <div class="flex">
-              <img src="./assets/imgs/vote-icon.png" />
-              <span> <span> 11 </span> Voters</span>
-            </div>
-
-            <span> Polling Unit 1 </span>
-            <h3> Britian Election </h3>
-            <a href="./election-detail.php"><button class="btn btn-secondary"> View More </button> </a>
-          </div>
-
-          <div class="election">
-            <div class="flex">
-              <img src="./assets/imgs/vote-icon.png" />
-              <span> <span> 11 </span> Voters</span>
-            </div>
-
-            <span> Polling Unit 1 </span>
-            <h3> Britian Election </h3>
-            <a href="./election-detail.php"><button class="btn btn-secondary"> View More </button> </a>
-          </div>
+      
         </div>
     </main>
     <?php
       include('./assets/components/footer.php')
     ?>
+    <script src="./assets/js/election.js"> </script>
     </body>
   </html>

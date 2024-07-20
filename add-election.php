@@ -39,7 +39,12 @@
           </div>
           <div class="d-grid gap-1">
             <label for="polling_unit" class="form-label"> Election Polling Unit </label>
-            <input id="polling_unit" class="form-control" type="text" required />
+            <select  id="polling_unit" class="form-select" aria-label="Default select example" required>
+              <option selected>Open this select menu</option>
+              <option value="polling_unit_A"> Polling Unit A</option>
+              <option value="polling_unit_b"> Polling Unit B </option>
+              <option value="polling_unit_c"> Polling Unit C </option>
+            </select>
           </div>
           <button id="add-election-btn" type="button" class="button rounded shadow-sm btn-secondary"> Submit </button>
 

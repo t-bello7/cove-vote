@@ -25,5 +25,23 @@
             exit(" There was an error creating election");
         }
         
+    } 
+
+    if (isset($_GET['get_election'])) {
+        $res = $connection->query(query: "SELECT `name`, `polling_unit`, `election_id`, `votes` FROM election;");
+        $result_array = [];
+    
+        if ( $res->num_rows > 0 ) {
+            while($row=$res->fetch_assoc()) {
+                array_push($result_array, $row);
+            }
+            header('Access-Control-Allow-Origin: *');
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        } else {
+            echo json_encode(array('mesage' =>  "<h1> No Record Found </h1>"));
+        }
     }
+   
+
 ?>
