@@ -42,4 +42,42 @@
             echo json_encode(array('mesage' =>  "<h1> No Record Found </h1>"));
         }
     }
+
+    if (isset($_POST['input'])) {
+        $input = $_POST['input'];
+
+        $res = $connection->query(query: "SELECT * FROM election WHERE name LIKE '${input}%' ");
+
+        $result_array = [];
+        if ($res->num_rows > 0 ) {
+            while($row=$res->fetch_assoc()) {
+                array_push($result_array, $row);
+            }
+            header('Access-Control-Allow-Origin: *');
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        } else {
+            echo $return = "No record";
+        }
+
+    }
+    if (isset($_POST['formQuery'])) {
+        $location = $_POST['location'];
+        $polling_unit = $_POST['polling_unit'];
+
+        $res = $connection->query(query: "SELECT * FROM election WHERE location LIKE '${location}%'  OR `polling_unit` like '${polling_unit}%' ");
+
+        $result_array = [];
+        if ($res->num_rows > 0 ) {
+            while($row=$res->fetch_assoc()) {
+                array_push($result_array, $row);
+            }
+            header('Access-Control-Allow-Origin: *');
+            header('Content-type: application/json');
+            echo json_encode($result_array);
+        } else {
+            echo $return = "No record";
+        }
+    }
+
 ?>
