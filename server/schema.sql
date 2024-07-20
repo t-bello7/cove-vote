@@ -23,7 +23,7 @@ CREATE TABLE IF NOT EXISTS `election` (
     `name`  VARCHAR(150) NOT NULL,
     `description` TEXT,
     `user_id`     INT NULL,
-    `votes` INT NULL,
+    `votes` INT NULL DEFAULT 0,
     `candidates` JSON,
     `location` ENUM ('england', 'scotland', 'wales', 'ireland', 'outside'),
     `polling_unit` ENUM ('polling_unit_A', 'polling_unit_b', 'polling_unit_c'),

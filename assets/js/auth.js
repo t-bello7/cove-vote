@@ -1,6 +1,4 @@
 $(document).ready(function() {
-  console.log($(location).attr("pathname"))
-
   $("#login-btn").on('click', function() {
     var email = $("#login-email").val();
     var password = $("#login-password").val();
@@ -18,7 +16,6 @@ $(document).ready(function() {
           },
           success: function(response) {
               if (response == 'success') {
-                  console.log('i got here')
                   window.location.href = 'election-list.php';
               }else {
                   alert(response)

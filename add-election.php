@@ -16,19 +16,19 @@
         <form class="d-grid gap-3 mb-3">
           <div class="d-grid gap-1">
             <label for="name" class="form-label"> Election Name </label>
-            <input id="name" class="form-control" type="text" />
+            <input id="name" class="form-control" type="text" required />
           </div>
           <div class="d-grid gap-1">
             <label for="description" class="form-label"> Election Description </label>
-            <input id="description" class="form-control" type="text" />
+            <input id="description" class="form-control" type="text" required />
           </div>
           <div class="d-grid gap-1">
-            <label for="description" class="form-label"> Candidates </label>
-            <textarea placeholder="candidate A, candidate B" class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            <label for="candidates" class="form-label"> Candidates </label>
+            <textarea id="candidates" placeholder="candidate A, candidate B" class="form-control" id="exampleFormControlTextarea1" rows="3" required></textarea>
           </div>
           <div class="d-grid gap-1">
-            <label for="vlocation" class="form-label"> Election Location </label>
-            <select id="vlocation" class="form-select" aria-label="Default select example">
+            <label for="location" class="form-label"> Election Location </label>
+            <select id="location" class="form-select" aria-label="Default select example" required>
               <option selected>Open this select menu</option>
               <option value="england"> England </option>
               <option value="scotland"> Scotland </option>
@@ -37,9 +37,9 @@
               <option value="outside"> Outside Britian </option>
             </select>
           </div>
-          <div>
-          <label for="polling_unit" class="form-label"> Election Polling Unit </label>
-            <input id="polling_unit" class="form-control" type="text" />
+          <div class="d-grid gap-1">
+            <label for="polling_unit" class="form-label"> Election Polling Unit </label>
+            <input id="polling_unit" class="form-control" type="text" required />
           </div>
           <button id="add-election-btn" type="button" class="button rounded shadow-sm btn-secondary"> Submit </button>
 
@@ -48,5 +48,6 @@
     <?php
       include('./assets/components/footer.php')
     ?>
+    <script src="./assets/js/election.js"> </script>
     </body>
   </html>
