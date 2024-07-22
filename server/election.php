@@ -26,7 +26,6 @@
         }
         
     } 
-
     if (isset($_GET['get_election'])) {
         $res = $connection->query(query: "SELECT `name`, `polling_unit`, `election_id`, `votes` FROM election;");
         $result_array = [];
@@ -42,7 +41,6 @@
             echo json_encode(array('mesage' =>  "<h1> No Record Found </h1>"));
         }
     }
-
     if (isset($_POST['input'])) {
         $input = $_POST['input'];
 
